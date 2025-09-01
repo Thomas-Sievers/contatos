@@ -21,7 +21,7 @@ const HomePage = () => {
     if (isLoaded) {
       localStorage.setItem('contatos', JSON.stringify(contacts));
     }
-  }, [contacts]);
+  }, [contacts, isLoaded]);
 
   const handleSubmit = (newContact) => {
     setContacts(prev => [...prev, newContact]);
