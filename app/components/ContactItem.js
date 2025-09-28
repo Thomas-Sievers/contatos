@@ -1,6 +1,7 @@
 import Link from 'next/link';
+import { memo } from 'react';
 
-const ContactItem = ({ contact, onRemove }) => {
+const ContactItem = memo(({ contact, onRemove }) => {
     return (
         <li className="p-4 flex items-center justify-between">
             <div>
@@ -22,6 +23,8 @@ const ContactItem = ({ contact, onRemove }) => {
             </button>
         </li>
     );
-};
+});
+
+ContactItem.displayName = 'ContactItem';
 
 export default ContactItem;

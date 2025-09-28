@@ -1,7 +1,13 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const ContactForm = ({ onAdd }) => {
     const [form, setForm] = useState({ nome: "", email: "", telefone: "" });
+    const nomeInputRef = useRef(null);
+
+    useEffect(() => {
+        nomeInputRef.current?.focus();
+    }, []);
+
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -20,6 +26,7 @@ const ContactForm = ({ onAdd }) => {
             <div>
                 <label className="block text-sm font-medium mb-1 text-gray-700">Nome</label>
                 <input
+                    ref={nomeInputRef}
                     name="nome"
                     className="w-full border rounded px-3 py-2 text-gray-900"
                     value={form.nome}
